@@ -88,6 +88,10 @@
             alert('Bạn đang sử dụng Ablock, vui lòng tạm dừng chạy Adblock để chúng tôi có thể hiển thị hình ảnh tốt hơn!');
           }
         }, 100)
+
+        if (detectmob() == true) {
+            document.getElementById('div-logo').style.display = 'none';
+        }
     };
 
     function detectBrowser() {
@@ -116,7 +120,23 @@
            console.log('unknown');
         }
         }
-    </script>
+
+    function detectmob() { 
+     if( navigator.userAgent.match(/Android/i)
+     || navigator.userAgent.match(/webOS/i)
+     || navigator.userAgent.match(/iPhone/i)
+     || navigator.userAgent.match(/iPad/i)
+     || navigator.userAgent.match(/iPod/i)
+     || navigator.userAgent.match(/BlackBerry/i)
+     || navigator.userAgent.match(/Windows Phone/i)
+     ){
+        return true;
+      }
+     else {
+        return false;
+      }
+    }
+</script>
 
 <body data-spy="scroll" data-target="#primary-menu">
 
@@ -129,7 +149,7 @@
         </div>
     </div>
     <!--Mainmenu-area-->
-    <div class="mainmenu-area" data-spy="affix" data-offset-top="100">
+    <div id="div-logo" class="mainmenu-area" data-spy="affix" data-offset-top="100">
         <div class="container">
             <!--Logo-->
             <div class="navbar-header">
